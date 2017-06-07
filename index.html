@@ -2,7 +2,6 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0"/>
     <title>自拍杆H5</title>
@@ -42,23 +41,36 @@
     </div>
     <!--全景图-->
     <div class="scroll-img">
-        <div class="scroll-img-td" id="marquePic1">
-            <img name="pic"
-                 id="main_img_work"
+        <div class="scroll-img-td" id="scroll-full-view-small">
+            <img name="pic" class="full-view-pic small-full-pic"
+                 src="">
+           <!-- <div class="zpg-big-magnifier-container">
+                <img src="img/big_magnifier.png"  class="zpg-big-magnifier"/>
+                <span class="big-magnifier-tit">点击放大镜，全景局部放大展示</span>
+            </div>-->
+            <div>
+                <img src="img/now_play.png"  class="now-paly-icon"/>
+                <img src="img/vertical_covert_horizontal.png"  class="screen-covert-icon"/>
+                <img src="img/barrage.png"  class="barrage-icon"/>
+                <img src="img/magnifier.png"  class="small-magnifier-icon"/>
+            </div>
+        </div>
+        <div class="scroll-img-td big-full-view-box" id="full-view-mask">
+            <img name="pic" class="full-view-pic large-full-pic" style="position:absolute;"
                  src="">
         </div>
     </div>
-
 </div>
 
 
 </body>
-<script type="application/javascript" charset="utf-8">
+<script src="js/index.js"></script>
+<script type="application/javascript">
     var protionId = $("#protionId").val();
     var userHeadImg = $("div.user_head img");     // 用户头像
     var userNameSpan = $("#user_name_span");      // 用户姓名
     var creatTimeSpan= $("#creat_time_span");     // 时间
-    var bigPic = $(".scroll-img-td img");
+    var bigPic = $(".scroll-img-td .full-view-pic");
 
     // 请求接口刷新数据
     $.ajax({
@@ -82,20 +94,21 @@
             }
         }
     });
-function dateFormat(input){
-    if (input == null || input == '' || typeof(input) == "undefined") {
-        return "";
+
+    function dateFormat(input){
+        if (input == null || input == '' || typeof(input) == "undefined") {
+            return "";
+        }
+        var _date = new Date(input);
+        var year = _date.getFullYear();
+        var month = _date.getMonth() + 1 > 9 ? _date.getMonth() + 1 : "0" + (_date.getMonth() + 1);
+        var day = _date.getDate() > 9 ? _date.getDate() : "0" + _date.getDate();
+        var hour = _date.getHours() + 1 > 9 ? _date.getHours() : "0" + _date.getHours();
+        var minutes = _date.getMinutes() + 1 > 9 ? _date.getMinutes() : "0" + _date.getMinutes();
+        var seconds = _date.getSeconds() + 1 > 9 ? _date.getSeconds() : "0" + _date.getSeconds();
+
+        return year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":" + seconds;
+
     }
-    var _date = new Date(input);
-    var year = _date.getFullYear();
-    var month = _date.getMonth() + 1 > 9 ? _date.getMonth() + 1 : "0" + (_date.getMonth() + 1);
-    var day = _date.getDate() > 9 ? _date.getDate() : "0" + _date.getDate();
-    var hour = _date.getHours() + 1 > 9 ? _date.getHours() : "0" + _date.getHours();
-    var minutes = _date.getMinutes() + 1 > 9 ? _date.getMinutes() : "0" + _date.getMinutes();
-    var seconds = _date.getSeconds() + 1 > 9 ? _date.getSeconds() : "0" + _date.getSeconds();
-
-    return year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":" + seconds;
-
-}
 </script>
 </html>

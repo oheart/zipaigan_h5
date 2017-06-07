@@ -9,6 +9,13 @@ html,body{width: 100%;height: 100%;overflow: auto;background: #ffffff}
 .fl{ float: left;}
 .fr{float: right;}
 .fl-clear{clear: both;}
+/*media css*/
+@media screen and (orientation: landscape){
+    .small-full-pic{
+        width: 100%;
+    }
+}
+
 /*------主板样式表-------*/
 .wrap{
     width: 100%;
@@ -62,10 +69,72 @@ html,body{width: 100%;height: 100%;overflow: auto;background: #ffffff}
     height: 50%;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 }
 .scroll-img-td{
     height: 100%;
 }
-.scroll-img-td img{
+.scroll-img-td .full-view-pic{
     height: 100%;
+}
+.zpg-big-magnifier{
+    position: absolute;
+    /*left:20px;*/
+    /*top:20px;*/
+    width: auto;
+    height:40%;
+    top: 50%;
+    left: 50%;
+    /*width:50%;*/
+    /*height:30%;*/
+    transform: translate(-50%, -50%);
+}
+.big-magnifier-tit{
+    color: #FFF;
+    font-size: .2rem;
+    text-align: center;
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    margin-left: -1.1rem;
+}
+.now-paly-icon{
+    position: absolute;
+    left: 6px;
+    bottom: 5px;
+}
+.screen-covert-icon{
+    position: absolute;
+    right: 12px;
+    bottom: 5px;
+}
+.barrage-icon{
+    position: absolute;
+    right: 15px;
+    bottom: 52px;
+}
+.small-magnifier-icon{
+    position: absolute;
+    right: 15px;
+    bottom: 102px;
+    display:none;
+}
+#full-view-mask{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 0;
+    top: 20px;
+    overflow: hidden;
+    border: 3px solid #FFF;
+    display:none;
+    border-radius:50%;
+}
+.magnifierRentgen .big-full-view-box {
+    border: #f0f0f0 4px solid;
+    box-shadow: rgba(0,0,0,0.3) 5px 5px 8px;
+    cursor: none;
+    -webkit-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    transform: scale(1.6);
 }
